@@ -1,0 +1,8 @@
+FROM alpine:3.18
+RUN apk add --no-cache python3 py3-pip openjdk11
+WORKDIR /app
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+COPY app.py .
+EXPOSE 5001
+CMD ["python3", "app.py"]
